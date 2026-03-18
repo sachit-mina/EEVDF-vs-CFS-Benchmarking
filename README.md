@@ -19,13 +19,4 @@ Motivated by the strict microsecond timing requirements of automotive Advanced D
 
 ### Datasets
 * **`dataset_CFS.csv`**: Empirical latency and hardware metrics captured on Linux Kernel 6.5.0.
-* **`dataset_EEVDF.csv`**: Empirical latency and hardware metrics captured on Linux Kernel 6.17.x.
-
-## How to Run the Analysis Pipeline
-
-**1. Environment Setup**
-Ensure you have Python 3 installed. It is recommended to run this inside a virtual environment:
-```bash
-python3 -m venv env
-source env/bin/activate
-pip install pandas numpy scipy matplotlib seaborn jupyter
+* **`dataset_EEVDF.csv`**: Empirical latency and hardware metrics captured on Linux Kernel 6.17.0.
