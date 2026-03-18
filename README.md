@@ -1,8 +1,5 @@
 # From Fairness to Deadlines: A Comparative Statistical Study of CFS and EEVDF Schedulers in Automotive Edge Computing
 
-**Author:** Sachit Mina (566321)  
-**Date:** March 2026
-
 ## Abstract
 This study empirically evaluates the real-time deterministic capabilities of the Linux kernel during its transition from the Completely Fair Scheduler (CFS) to the Earliest Eligible Virtual Deadline First (EEVDF) algorithm. EEVDF eliminates arbitrary heuristics in favor of strict mathematical virtual deadlines to ensure absolute fairness. Inspired by the strict timing requirements of automotive Advanced Driver Assistance Systems (ADAS) such as Brake-by-Wire, we constructed a bare-metal benchmarking environment to simulate heavy resource contention. A non-parametric Mann-Whitney U test confirms that while EEVDF provides theoretically superior fairness and tighter context-switching efficiency, it significantly degraded worst-case responsiveness out-of-the-box. To achieve the microsecond responsiveness required for safety-critical tasks, developers must adopt the new `latency-nice` API, explicitly instructing the EEVDF algorithm to bypass its standard fairness calculations for designated brake and sensor signals.
 
@@ -44,6 +41,7 @@ Because ADAS systems are bounded by their worst-case scenarios, the 99th percent
 | :--- | :--- | :--- | :--- |
 | **CFS** | 158.66 | 92.50 | 500.54 |
 | **EEVDF** | 570.62 | 114.50 | 10,330.00 |
+
 *Table 1: Latency Distribution Metrics*
 
 The EDA highlights a severe regression in worst-case execution under EEVDF. While the median latencies remain somewhat comparable, EEVDF's p99 tail latency spikes to over 10 milliseconds, a delay that is unacceptable for time-critical automotive signals.
